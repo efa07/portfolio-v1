@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { PERSONAL_INFO } from "@/data/portfolioData";
 import { ArrowUp, Mail, Heart } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/Icons";
@@ -25,8 +26,14 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-white/[0.05]">
           {/* Brand */}
           <div className="flex items-center gap-3">
-            <div className="w-7 h-7 rounded-lg bg-zinc-900 border border-white/10 flex items-center justify-center font-bold text-white text-xs">
-              ET
+            <div className="relative w-8 h-8 rounded-lg overflow-hidden border border-white/10 shrink-0 bg-zinc-900">
+              <Image
+                src="/efa.jpeg"
+                alt="Efa Tariku"
+                fill
+                className="object-cover object-top"
+                sizes="32px"
+              />
             </div>
             <div>
               <div className="text-white font-semibold tracking-tight text-sm">

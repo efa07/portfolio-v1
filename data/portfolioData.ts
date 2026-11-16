@@ -51,7 +51,7 @@ export const PERSONAL_INFO = {
   socials: {
     github: "https://github.com/efa07",
     email: "efa.tariku.dev@gmail.com",
-    linkedin: "https://linkedin.com/in/efatariku", // configurable placeholder
+    linkedin: "https://www.linkedin.com/in/efa-tariku-7489bb3ab",
   },
   interests: [
     "Backend Engineering",

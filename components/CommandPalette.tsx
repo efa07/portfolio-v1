@@ -15,7 +15,7 @@ import {
   Globe,
   X,
 } from "lucide-react";
-import { GithubIcon } from "@/components/Icons";
+import { GithubIcon, LinkedinIcon } from "@/components/Icons";
 import { PERSONAL_INFO, PROJECTS } from "@/data/portfolioData";
 
 export function CommandPalette() {
@@ -100,6 +100,15 @@ export function CommandPalette() {
       icon: GithubIcon,
       action: () => {
         window.open(PERSONAL_INFO.socials.github, "_blank");
+        setIsOpen(false);
+      },
+    },
+    {
+      label: "Open LinkedIn Profile (Efa Tariku)",
+      category: "Social",
+      icon: LinkedinIcon,
+      action: () => {
+        window.open(PERSONAL_INFO.socials.linkedin, "_blank");
         setIsOpen(false);
       },
     },

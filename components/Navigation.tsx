@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { PERSONAL_INFO } from "@/data/portfolioData";
 import { Menu, X, ArrowUpRight, Terminal, Mail } from "lucide-react";
@@ -65,8 +66,15 @@ export function Navigation() {
               href="#"
               className="group flex items-center gap-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d4f932] rounded-md"
             >
-              <div className="w-8 h-8 rounded-lg bg-zinc-900 border border-white/10 flex items-center justify-center group-hover:border-[#d4f932]/60 transition-colors">
-                <span className="text-xs font-mono font-bold text-[#d4f932]">ET</span>
+              <div className="relative w-8 h-8 rounded-lg overflow-hidden border border-white/10 group-hover:border-[#d4f932]/60 transition-colors shrink-0 bg-zinc-900">
+                <Image
+                  src="/efa.jpeg"
+                  alt="Efa Tariku"
+                  fill
+                  className="object-cover object-top"
+                  sizes="32px"
+                  priority
+                />
               </div>
               <div className="flex flex-col">
                 <span className="text-sm font-semibold tracking-tight text-white group-hover:text-zinc-200 transition-colors">
