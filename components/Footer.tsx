@@ -20,13 +20,13 @@ export function Footer() {
   return (
     <footer
       aria-label="Site Footer"
-      className="border-t border-white/[0.08] bg-[#06070a] py-12 text-zinc-500 font-mono text-xs"
+      className="border-t border-border bg-card-3 py-12 text-faint font-mono text-xs"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-white/[0.05]">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-border">
           {/* Brand */}
           <div className="flex items-center gap-3">
-            <div className="relative w-8 h-8 rounded-lg overflow-hidden border border-white/10 shrink-0 bg-zinc-900">
+            <div className="relative w-8 h-8 rounded-lg overflow-hidden border border-border shrink-0 bg-fill-2">
               <Image
                 src="/efa.jpeg"
                 alt="Efa Tariku"
@@ -36,10 +36,10 @@ export function Footer() {
               />
             </div>
             <div>
-              <div className="text-white font-semibold tracking-tight text-sm">
+              <div className="text-foreground font-semibold tracking-tight text-sm">
                 Efa Tariku
               </div>
-              <div className="text-[10px] text-zinc-500">
+              <div className="text-[10px] text-faint">
                 Software Engineer • Full-Stack Developer
               </div>
             </div>
@@ -51,7 +51,7 @@ export function Footer() {
               href={PERSONAL_INFO.socials.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
+              className="hover:text-foreground transition-colors"
             >
               GitHub
             </a>
@@ -59,36 +59,36 @@ export function Footer() {
               href={PERSONAL_INFO.socials.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
+              className="hover:text-foreground transition-colors"
             >
               LinkedIn
             </a>
             <a
               href={`mailto:${PERSONAL_INFO.socials.email}`}
-              className="hover:text-white transition-colors"
+              className="hover:text-foreground transition-colors"
             >
               Email
             </a>
             <button
               onClick={scrollToTop}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-white/10 hover:border-white/20 hover:text-white transition-colors"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border hover:border-border-strong hover:text-foreground transition-colors"
               aria-label="Back to top"
             >
               <span>Back to top</span>
-              <ArrowUp className="w-3.5 h-3.5 text-[#d4f932]" />
+              <ArrowUp className="w-3.5 h-3.5 text-accent-ink" />
             </button>
           </div>
         </div>
 
         {/* Bottom Metadata */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-zinc-600">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-ghost">
           <div>
             &copy; {currentYear} {PERSONAL_INFO.name}. All rights reserved.
           </div>
           <div className="flex items-center gap-2">
             <span>Built with Next.js 16, Motion & Tailwind CSS</span>
             <span>•</span>
-            <span className="text-zinc-500">Addis Ababa, Ethiopia</span>
+            <span className="text-faint">Addis Ababa, Ethiopia</span>
           </div>
         </div>
       </div>

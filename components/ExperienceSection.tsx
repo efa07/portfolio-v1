@@ -28,27 +28,27 @@ export function ExperienceSection() {
     <section
       id="experience"
       aria-label="Experience & Education"
-      className="py-24 border-t border-white/[0.06] relative"
+      className="py-24 border-t border-border relative"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-mono text-[#d4f932]">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-fill-2 border border-border text-xs font-mono text-accent-ink">
               <Briefcase className="w-3.5 h-3.5" />
               <span>CAREER TIMELINE & CREDENTIALS</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
+            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-foreground">
               Experience & Education
             </h2>
-            <p className="text-sm sm:text-base text-zinc-400 leading-relaxed">
+            <p className="text-sm sm:text-base text-subtle leading-relaxed">
               Engineering enterprise software at national scale, grounded by intensive
               software engineering programs and continuous computational study.
             </p>
           </div>
 
           {/* Filter Pills */}
-          <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+          <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-fill-1 border border-border">
             {(["All", "Work", "Education", "Certification"] as const).map((tab) => {
               const isActive = activeTab === tab;
               return (
@@ -56,13 +56,13 @@ export function ExperienceSection() {
                   key={tab}
                   onClick={() => setActiveTab(tab)}
                   className={`relative px-3.5 py-1.5 rounded-lg text-xs font-mono transition-colors ${
-                    isActive ? "text-black font-semibold" : "text-zinc-400 hover:text-white"
+                    isActive ? "text-accent-fg font-semibold" : "text-subtle hover:text-foreground"
                   }`}
                 >
                   {isActive && (
                     <motion.div
                       layoutId="expPill"
-                      className="absolute inset-0 bg-[#d4f932] rounded-lg shadow-sm"
+                      className="absolute inset-0 bg-accent rounded-lg shadow-sm"
                       transition={{ type: "spring", stiffness: 400, damping: 30 }}
                     />
                   )}
@@ -88,41 +88,41 @@ export function ExperienceSection() {
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
                 className={`group relative rounded-2xl border transition-all duration-300 p-6 sm:p-8 ${
                   item.id === "insa-fullstack"
-                    ? "border-[#d4f932]/40 bg-gradient-to-r from-[#0c0e15] to-[#08090f] shadow-xl"
-                    : "border-white/[0.07] bg-[#090b10]/60 hover:bg-[#0c0d15] hover:border-white/15"
+                    ? "border-accent/40 bg-gradient-to-r from-card-2 to-card shadow-xl"
+                    : "border-border bg-card-3/60 hover:bg-card hover:border-border-strong"
                 }`}
               >
                 <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6">
                   {/* Left Metadata Block */}
                   <div className="lg:w-1/3 space-y-2">
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-mono px-2 py-0.5 rounded bg-white/[0.05] border border-white/[0.08] text-zinc-300">
+                      <span className="text-xs font-mono px-2 py-0.5 rounded bg-fill-2 border border-border text-muted">
                         {item.period}
                       </span>
                       {item.badge && (
-                        <span className="text-xs font-mono px-2 py-0.5 rounded bg-[#d4f932]/10 border border-[#d4f932]/30 text-[#d4f932]">
+                        <span className="text-xs font-mono px-2 py-0.5 rounded bg-accent/10 border border-accent/30 text-accent-ink">
                           {item.badge}
                         </span>
                       )}
                     </div>
 
-                    <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight group-hover:text-zinc-100 transition-colors">
+                    <h3 className="text-xl sm:text-2xl font-bold text-foreground tracking-tight group-hover:text-foreground transition-colors">
                       {item.role}
                     </h3>
 
-                    <div className="flex items-center gap-2 text-sm text-zinc-400 font-medium">
-                      <Building className="w-4 h-4 text-zinc-500" />
+                    <div className="flex items-center gap-2 text-sm text-subtle font-medium">
+                      <Building className="w-4 h-4 text-faint" />
                       <span>{item.organization}</span>
                     </div>
 
-                    <div className="text-xs font-mono text-zinc-500 pt-1">
+                    <div className="text-xs font-mono text-faint pt-1">
                       TYPE: {item.type.toUpperCase()}
                     </div>
                   </div>
 
                   {/* Right Content Block */}
                   <div className="lg:w-2/3 space-y-4">
-                    <p className="text-sm text-zinc-300 leading-relaxed font-normal">
+                    <p className="text-sm text-muted leading-relaxed font-normal">
                       {item.description}
                     </p>
 
@@ -131,9 +131,9 @@ export function ExperienceSection() {
                         {item.details.map((detail, dIdx) => (
                           <li
                             key={dIdx}
-                            className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-400 leading-relaxed"
+                            className="flex items-start gap-2.5 text-xs sm:text-sm text-subtle leading-relaxed"
                           >
-                            <CheckCircle2 className="w-4 h-4 text-[#d4f932] shrink-0 mt-0.5" />
+                            <CheckCircle2 className="w-4 h-4 text-accent-ink shrink-0 mt-0.5" />
                             <span>{detail}</span>
                           </li>
                         ))}
@@ -142,11 +142,11 @@ export function ExperienceSection() {
 
                     {/* Technologies Pills */}
                     {item.technologies && (
-                      <div className="pt-3 border-t border-white/[0.06] flex flex-wrap gap-1.5">
+                      <div className="pt-3 border-t border-border flex flex-wrap gap-1.5">
                         {item.technologies.map((tech) => (
                           <span
                             key={tech}
-                            className="text-xs font-mono px-2.5 py-0.5 rounded-md bg-white/[0.03] border border-white/[0.06] text-zinc-400"
+                            className="text-xs font-mono px-2.5 py-0.5 rounded-md bg-fill-1 border border-border text-subtle"
                           >
                             {tech}
                           </span>

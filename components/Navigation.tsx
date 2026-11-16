@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { PERSONAL_INFO } from "@/data/portfolioData";
 import { Menu, X, ArrowUpRight, Terminal, Mail } from "lucide-react";
 import { GithubIcon } from "@/components/Icons";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const NAV_ITEMS = [
   { label: "About", href: "#about" },
@@ -57,16 +58,16 @@ export function Navigation() {
             aria-label="Main Navigation"
             className={`flex items-center justify-between rounded-full px-4 sm:px-6 py-2.5 transition-all duration-300 border ${
               scrolled
-                ? "bg-[#090a0f]/90 backdrop-blur-xl border-white/[0.09] shadow-2xl shadow-black/60"
-                : "bg-[#090a0f]/60 backdrop-blur-md border-white/[0.05]"
+                ? "bg-card/90 backdrop-blur-xl border-border shadow-2xl"
+                : "bg-card/60 backdrop-blur-md border-border"
             }`}
           >
             {/* Wordmark Logo */}
             <a
               href="#"
-              className="group flex items-center gap-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d4f932] rounded-md"
+              className="group flex items-center gap-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md"
             >
-              <div className="relative w-8 h-8 rounded-lg overflow-hidden border border-white/10 group-hover:border-[#d4f932]/60 transition-colors shrink-0 bg-zinc-900">
+              <div className="relative w-8 h-8 rounded-lg overflow-hidden border border-border group-hover:border-accent/60 transition-colors shrink-0 bg-fill-2">
                 <Image
                   src="/efa.jpeg"
                   alt="Efa Tariku"
@@ -77,17 +78,17 @@ export function Navigation() {
                 />
               </div>
               <div className="flex flex-col">
-                <span className="text-sm font-semibold tracking-tight text-white group-hover:text-zinc-200 transition-colors">
+                <span className="text-sm font-semibold tracking-tight text-foreground group-hover:text-foreground/90 transition-colors">
                   EFA TARIKU
                 </span>
-                <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest hidden sm:block">
+                <span className="text-[10px] font-mono text-faint uppercase tracking-widest hidden sm:block">
                   Software Engineer
                 </span>
               </div>
             </a>
 
             {/* Desktop Navigation Links */}
-            <div className="hidden md:flex items-center gap-1 bg-white/[0.03] p-1 rounded-full border border-white/[0.04]">
+            <div className="hidden md:flex items-center gap-1 bg-fill-1 p-1 rounded-full border border-border">
               {NAV_ITEMS.map((item) => {
                 const isActive = activeSection === item.href.replace("#", "");
                 return (
@@ -96,14 +97,14 @@ export function Navigation() {
                     href={item.href}
                     className={`relative px-4 py-1.5 text-xs font-medium transition-colors rounded-full ${
                       isActive
-                        ? "text-white"
-                        : "text-zinc-400 hover:text-white"
+                        ? "text-foreground"
+                        : "text-subtle hover:text-foreground"
                     }`}
                   >
                     {isActive && (
                       <motion.div
                         layoutId="activePill"
-                        className="absolute inset-0 bg-white/10 rounded-full border border-white/15"
+                        className="absolute inset-0 bg-fill-3 rounded-full border border-border-strong"
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
                     )}
@@ -113,34 +114,38 @@ export function Navigation() {
               })}
             </div>
 
-            {/* Availability Pill & Quick Contact */}
-            <div className="hidden lg:flex items-center gap-3">
-              <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/[0.08] border border-emerald-500/20 text-[11px] font-mono text-emerald-400">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
-                <span>Open to opportunities</span>
+            {/* Right Cluster: availability, theme toggle, quick contact, mobile menu */}
+            <div className="flex items-center gap-2 sm:gap-3">
+              <div className="hidden lg:flex items-center gap-3">
+                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/[0.08] border border-emerald-500/20 text-[11px] font-mono text-success">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                  </span>
+                  <span>Open to opportunities</span>
+                </div>
+
+                <a
+                  href="#contact"
+                  className="relative inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 text-xs font-medium text-accent-fg bg-accent hover:bg-accent-hover transition-all rounded-full shadow-[0_0_15px_rgba(212,249,50,0.25)] hover:shadow-[0_0_22px_rgba(212,249,50,0.4)] active:scale-95"
+                >
+                  <span>Get in touch</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </a>
               </div>
 
-              <a
-                href="#contact"
-                className="relative inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 text-xs font-medium text-black bg-[#d4f932] hover:bg-[#e2ff4a] transition-all rounded-full shadow-[0_0_15px_rgba(212,249,50,0.25)] hover:shadow-[0_0_22px_rgba(212,249,50,0.4)] active:scale-95"
-              >
-                <span>Get in touch</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </a>
-            </div>
+              <ThemeToggle />
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-zinc-400 hover:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#d4f932]"
-              aria-label="Toggle navigation menu"
-              aria-expanded={mobileMenuOpen}
-            >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
+              {/* Mobile Menu Button */}
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="md:hidden p-2 text-subtle hover:text-foreground rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+                aria-label="Toggle navigation menu"
+                aria-expanded={mobileMenuOpen}
+              >
+                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              </button>
+            </div>
           </nav>
         </div>
       </header>
@@ -153,10 +158,10 @@ export function Navigation() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-4 top-20 z-40 md:hidden bg-[#0d0e15] border border-white/10 rounded-2xl p-5 shadow-2xl backdrop-blur-2xl"
+            className="fixed inset-x-4 top-20 z-40 md:hidden bg-card border border-border rounded-2xl p-5 shadow-2xl backdrop-blur-2xl"
           >
             <div className="flex flex-col gap-2">
-              <div className="flex items-center gap-2 pb-3 mb-2 border-b border-white/10 text-xs font-mono text-emerald-400">
+              <div className="flex items-center gap-2 pb-3 mb-2 border-b border-border text-xs font-mono text-success">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -169,17 +174,17 @@ export function Navigation() {
                   key={item.label}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="px-3 py-2.5 text-sm font-medium text-zinc-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors"
+                  className="px-3 py-2.5 text-sm font-medium text-muted hover:text-foreground hover:bg-fill-2 rounded-xl transition-colors"
                 >
                   {item.label}
                 </a>
               ))}
 
-              <div className="pt-3 mt-2 border-t border-white/10 flex flex-col gap-2">
+              <div className="pt-3 mt-2 border-t border-border flex flex-col gap-2">
                 <a
                   href="#contact"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 w-full py-2.5 text-xs font-semibold text-black bg-[#d4f932] rounded-xl hover:bg-[#e2ff4a]"
+                  className="flex items-center justify-center gap-2 w-full py-2.5 text-xs font-semibold text-accent-fg bg-accent rounded-xl hover:bg-accent-hover"
                 >
                   <Mail className="w-4 h-4" />
                   <span>Contact Me</span>
@@ -188,7 +193,7 @@ export function Navigation() {
                   href={PERSONAL_INFO.socials.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full py-2.5 text-xs font-medium text-zinc-300 bg-white/5 hover:bg-white/10 rounded-xl"
+                  className="flex items-center justify-center gap-2 w-full py-2.5 text-xs font-medium text-muted bg-fill-2 hover:bg-fill-3 rounded-xl"
                 >
                   <GithubIcon className="w-4 h-4" />
                   <span>GitHub Profile</span>

@@ -10,7 +10,7 @@ import { CommandPalette } from "@/components/CommandPalette";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-[#070709] text-zinc-100 flex flex-col selection:bg-[#d4f932] selection:text-black">
+    <main className="relative min-h-screen bg-background text-foreground flex flex-col selection:bg-accent selection:text-accent-fg">
       <Navigation />
       <Hero />
       <ProjectsSection />

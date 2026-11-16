@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -72,10 +73,17 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} dark h-full antialiased selection:bg-[#d4f932] selection:text-black`}
+      suppressHydrationWarning
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased selection:bg-accent selection:text-accent-fg`}
     >
-      <body className="min-h-full flex flex-col bg-[#070709] text-zinc-100 font-sans antialiased">
-        {children}
+      <body className="min-h-full flex flex-col bg-background text-foreground font-sans antialiased">
+        {/* Applies the stored theme before first paint so there is no flash. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{if(localStorage.getItem("theme")==="light"){document.documentElement.dataset.theme="light";document.documentElement.style.colorScheme="light";}}catch(e){}})();`,
+          }}
+        />
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

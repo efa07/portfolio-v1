@@ -28,20 +28,20 @@ export function ProjectsSection() {
     <section
       id="projects"
       aria-label="Selected Projects"
-      className="py-24 border-t border-white/[0.06] relative"
+      className="py-24 border-t border-border relative"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-mono text-[#d4f932]">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-fill-2 border border-border text-xs font-mono text-accent-ink">
               <Layers className="w-3.5 h-3.5" />
               <span>CASE STUDIES & PRODUCTION REPOSITORIES</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
+            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-foreground">
               Featured Projects
             </h2>
-            <p className="text-sm sm:text-base text-zinc-400 leading-relaxed">
+            <p className="text-sm sm:text-base text-subtle leading-relaxed">
               Real-world software systems spanning national digital identity,
               healthcare, community mutual aid, and intelligent tutoring. Built with
               modern full-stack architectures.
@@ -49,7 +49,7 @@ export function ProjectsSection() {
           </div>
 
           {/* Category Filter Pills */}
-          <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+          <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-fill-1 border border-border">
             {CATEGORIES.map((cat) => {
               const isActive = activeCategory === cat;
               return (
@@ -57,13 +57,13 @@ export function ProjectsSection() {
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
                   className={`relative px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium transition-colors ${
-                    isActive ? "text-black font-semibold" : "text-zinc-400 hover:text-white"
+                    isActive ? "text-accent-fg font-semibold" : "text-subtle hover:text-foreground"
                   }`}
                 >
                   {isActive && (
                     <motion.div
                       layoutId="categoryPill"
-                      className="absolute inset-0 bg-[#d4f932] rounded-lg shadow-sm"
+                      className="absolute inset-0 bg-accent rounded-lg shadow-sm"
                       transition={{ type: "spring", stiffness: 400, damping: 30 }}
                     />
                   )}

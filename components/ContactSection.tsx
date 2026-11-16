@@ -42,54 +42,54 @@ export function ContactSection() {
     <section
       id="contact"
       aria-label="Contact Section"
-      className="py-24 border-t border-white/[0.06] relative overflow-hidden"
+      className="py-24 border-t border-border relative overflow-hidden"
     >
       {/* Subtle ambient lighting */}
-      <div className="absolute bottom-0 right-1/4 w-[600px] h-[350px] bg-[#d4f932]/[0.05] rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[600px] h-[350px] bg-accent/[0.05] rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Column: Headline & Direct Contact Channels */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-mono text-[#d4f932]">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-fill-2 border border-border text-xs font-mono text-accent-ink">
               <MessageSquare className="w-3.5 h-3.5" />
               <span>START A CONVERSATION</span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight">
+            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-foreground leading-tight">
               Have an interesting problem to solve?
             </h2>
 
-            <p className="text-base text-zinc-400 leading-relaxed">
+            <p className="text-base text-subtle leading-relaxed">
               I&apos;m always interested in connecting with people building meaningful
               products and solving challenging engineering problems.
             </p>
 
             {/* Quick Copy Email Card */}
-            <div className="p-4 rounded-xl border border-white/[0.08] bg-[#0c0d15] space-y-3">
-              <div className="text-xs font-mono text-zinc-500 uppercase tracking-wider">
+            <div className="p-4 rounded-xl border border-border bg-card space-y-3">
+              <div className="text-xs font-mono text-faint uppercase tracking-wider">
                 Direct Communication
               </div>
-              <div className="flex items-center justify-between gap-2 p-2.5 rounded-lg bg-black/50 border border-white/[0.06]">
+              <div className="flex items-center justify-between gap-2 p-2.5 rounded-lg bg-well border border-border">
                 <div className="flex items-center gap-2 overflow-hidden">
-                  <Mail className="w-4 h-4 text-[#d4f932] shrink-0" />
-                  <span className="text-xs sm:text-sm font-mono text-zinc-200 truncate">
+                  <Mail className="w-4 h-4 text-accent-ink shrink-0" />
+                  <span className="text-xs sm:text-sm font-mono text-foreground/90 truncate">
                     {PERSONAL_INFO.socials.email}
                   </span>
                 </div>
                 <button
                   onClick={handleCopyEmail}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-white/10 hover:bg-white/15 text-xs font-medium text-white transition-colors shrink-0"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-fill-3 hover:bg-fill-4 text-xs font-medium text-foreground transition-colors shrink-0"
                   aria-label="Copy email address"
                 >
                   {copied ? (
                     <>
-                      <Check className="w-3.5 h-3.5 text-[#d4f932]" />
-                      <span className="text-[#d4f932]">Copied!</span>
+                      <Check className="w-3.5 h-3.5 text-accent-ink" />
+                      <span className="text-accent-ink">Copied!</span>
                     </>
                   ) : (
                     <>
-                      <Copy className="w-3.5 h-3.5 text-zinc-400" />
+                      <Copy className="w-3.5 h-3.5 text-subtle" />
                       <span>Copy</span>
                     </>
                   )}
@@ -99,7 +99,7 @@ export function ContactSection() {
 
             {/* Social Channels */}
             <div className="space-y-2">
-              <div className="text-xs font-mono text-zinc-500 uppercase tracking-wider">
+              <div className="text-xs font-mono text-faint uppercase tracking-wider">
                 Profiles & Repositories
               </div>
               <div className="flex flex-wrap gap-3">
@@ -107,30 +107,30 @@ export function ContactSection() {
                   href={PERSONAL_INFO.socials.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-white/[0.08] bg-white/[0.02] hover:bg-white/[0.06] text-xs font-medium text-zinc-300 hover:text-white transition-colors"
+                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-border bg-fill-1 hover:bg-fill-2 text-xs font-medium text-muted hover:text-foreground transition-colors"
                 >
                   <GithubIcon className="w-4 h-4" />
                   <span>GitHub (@efa07)</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-zinc-500" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-faint" />
                 </a>
 
                 <a
                   href={PERSONAL_INFO.socials.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-white/[0.08] bg-white/[0.02] hover:bg-white/[0.06] text-xs font-medium text-zinc-300 hover:text-white transition-colors"
+                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-border bg-fill-1 hover:bg-fill-2 text-xs font-medium text-muted hover:text-foreground transition-colors"
                 >
-                  <LinkedinIcon className="w-4 h-4 text-sky-400" />
+                  <LinkedinIcon className="w-4 h-4 text-info" />
                   <span>LinkedIn Profile</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-zinc-500" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-faint" />
                 </a>
               </div>
             </div>
 
             {/* Location & Timezone Note */}
-            <div className="flex items-center gap-3 pt-2 text-xs font-mono text-zinc-500">
+            <div className="flex items-center gap-3 pt-2 text-xs font-mono text-faint">
               <span className="flex items-center gap-1">
-                <Globe2 className="w-3.5 h-3.5 text-zinc-400" />
+                <Globe2 className="w-3.5 h-3.5 text-subtle" />
                 <span>{PERSONAL_INFO.location}</span>
               </span>
               <span>•</span>
@@ -140,17 +140,17 @@ export function ContactSection() {
 
           {/* Right Column: Interactive Message Dispatch Form */}
           <div className="lg:col-span-7">
-            <div className="p-6 sm:p-8 rounded-2xl border border-white/[0.08] bg-[#0b0c13] shadow-xl relative">
-              <div className="flex items-center justify-between border-b border-white/[0.07] pb-4 mb-6">
+            <div className="p-6 sm:p-8 rounded-2xl border border-border bg-card shadow-xl relative">
+              <div className="flex items-center justify-between border-b border-border pb-4 mb-6">
                 <div>
-                  <h3 className="text-base font-semibold text-white">
+                  <h3 className="text-base font-semibold text-foreground">
                     Send a Message
                   </h3>
-                  <p className="text-xs text-zinc-400 mt-0.5">
+                  <p className="text-xs text-subtle mt-0.5">
                     For job inquiries, technical collaborations, or consulting
                   </p>
                 </div>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-success border border-emerald-500/20">
                   ACTIVE INBOX
                 </span>
               </div>
@@ -161,13 +161,13 @@ export function ContactSection() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="p-8 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-center space-y-3"
                 >
-                  <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto">
+                  <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-success flex items-center justify-center mx-auto">
                     <Check className="w-6 h-6" />
                   </div>
-                  <h4 className="text-lg font-bold text-white">
+                  <h4 className="text-lg font-bold text-foreground">
                     Message Dispatched Successfully
                   </h4>
-                  <p className="text-xs text-zinc-300 max-w-sm mx-auto">
+                  <p className="text-xs text-muted max-w-sm mx-auto">
                     Thank you for reaching out! I will review your message and reply
                     shortly at {formData.email || "your email"}.
                   </p>
@@ -176,7 +176,7 @@ export function ContactSection() {
                       setFormSubmitted(false);
                       setFormData({ name: "", email: "", message: "" });
                     }}
-                    className="mt-4 px-4 py-2 rounded-lg bg-white/10 hover:bg-white/15 text-xs text-white font-medium"
+                    className="mt-4 px-4 py-2 rounded-lg bg-fill-3 hover:bg-fill-4 text-xs text-foreground font-medium"
                   >
                     Send another message
                   </button>
@@ -187,7 +187,7 @@ export function ContactSection() {
                     <div className="space-y-1.5">
                       <label
                         htmlFor="name"
-                        className="text-xs font-mono text-zinc-400"
+                        className="text-xs font-mono text-subtle"
                       >
                         Your Name
                       </label>
@@ -200,14 +200,14 @@ export function ContactSection() {
                           setFormData({ ...formData, name: e.target.value })
                         }
                         placeholder="Ada Lovelace"
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-white/[0.08] bg-black/40 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-[#d4f932] focus:ring-1 focus:ring-[#d4f932] transition-colors"
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-border bg-well text-sm text-foreground placeholder-ghost focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
                       />
                     </div>
 
                     <div className="space-y-1.5">
                       <label
                         htmlFor="email"
-                        className="text-xs font-mono text-zinc-400"
+                        className="text-xs font-mono text-subtle"
                       >
                         Your Email
                       </label>
@@ -220,7 +220,7 @@ export function ContactSection() {
                           setFormData({ ...formData, email: e.target.value })
                         }
                         placeholder="ada@example.com"
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-white/[0.08] bg-black/40 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-[#d4f932] focus:ring-1 focus:ring-[#d4f932] transition-colors"
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-border bg-well text-sm text-foreground placeholder-ghost focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
                       />
                     </div>
                   </div>
@@ -228,7 +228,7 @@ export function ContactSection() {
                   <div className="space-y-1.5">
                     <label
                       htmlFor="message"
-                      className="text-xs font-mono text-zinc-400"
+                      className="text-xs font-mono text-subtle"
                     >
                       Project Details or Inquiry
                     </label>
@@ -241,13 +241,13 @@ export function ContactSection() {
                         setFormData({ ...formData, message: e.target.value })
                       }
                       placeholder="Describe your project, engineering challenge, or role specifications..."
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-white/[0.08] bg-black/40 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-[#d4f932] focus:ring-1 focus:ring-[#d4f932] transition-colors resize-none"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-border bg-well text-sm text-foreground placeholder-ghost focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors resize-none"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[#d4f932] hover:bg-[#e2ff4a] text-black font-semibold text-xs sm:text-sm transition-all shadow-[0_0_20px_rgba(212,249,50,0.2)] hover:shadow-[0_0_28px_rgba(212,249,50,0.35)] active:scale-[0.99]"
+                    className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-accent hover:bg-accent-hover text-accent-fg font-semibold text-xs sm:text-sm transition-all shadow-[0_0_20px_rgba(212,249,50,0.2)] hover:shadow-[0_0_28px_rgba(212,249,50,0.35)] active:scale-[0.99]"
                   >
                     <Send className="w-4 h-4" />
                     <span>Send Message to Efa</span>

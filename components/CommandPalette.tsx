@@ -124,12 +124,12 @@ export function CommandPalette() {
       <div className="fixed bottom-6 right-6 z-40 hidden md:block">
         <button
           onClick={() => setIsOpen(true)}
-          className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-900/90 hover:bg-zinc-800 border border-white/10 text-xs font-mono text-zinc-400 hover:text-white transition-all shadow-xl backdrop-blur-md"
+          className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-fill-2/90 hover:bg-fill-3 border border-border text-xs font-mono text-subtle hover:text-foreground transition-all shadow-xl backdrop-blur-md"
           title="Command Palette (Cmd+K)"
         >
-          <Command className="w-3.5 h-3.5 text-[#d4f932]" />
+          <Command className="w-3.5 h-3.5 text-accent-ink" />
           <span>Quick actions</span>
-          <kbd className="px-1.5 py-0.5 rounded bg-white/10 text-[10px] text-zinc-300">
+          <kbd className="px-1.5 py-0.5 rounded bg-fill-3 text-[10px] text-muted">
             ⌘K
           </kbd>
         </button>
@@ -151,22 +151,22 @@ export function CommandPalette() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.96, y: -10 }}
               transition={{ type: "spring", stiffness: 400, damping: 30 }}
-              className="relative w-full max-w-xl rounded-2xl border border-white/10 bg-[#0c0d15] shadow-2xl overflow-hidden z-10"
+              className="relative w-full max-w-xl rounded-2xl border border-border bg-card shadow-2xl overflow-hidden z-10"
             >
               {/* Search Bar Input */}
-              <div className="flex items-center px-4 py-3.5 border-b border-white/[0.08] gap-3">
-                <Search className="w-4 h-4 text-zinc-400 shrink-0" />
+              <div className="flex items-center px-4 py-3.5 border-b border-border gap-3">
+                <Search className="w-4 h-4 text-subtle shrink-0" />
                 <input
                   type="text"
                   autoFocus
                   placeholder="Type a command or jump to a section..."
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  className="w-full bg-transparent text-sm text-white placeholder-zinc-500 focus:outline-none"
+                  className="w-full bg-transparent text-sm text-foreground placeholder-faint focus:outline-none"
                 />
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="p-1 rounded-md text-zinc-500 hover:text-white"
+                  className="p-1 rounded-md text-faint hover:text-foreground"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -175,7 +175,7 @@ export function CommandPalette() {
               {/* Action List */}
               <div className="max-h-72 overflow-y-auto p-2 space-y-1">
                 {filtered.length === 0 ? (
-                  <div className="p-4 text-center text-xs text-zinc-500 font-mono">
+                  <div className="p-4 text-center text-xs text-faint font-mono">
                     No results found for &quot;{query}&quot;
                   </div>
                 ) : (
@@ -185,19 +185,19 @@ export function CommandPalette() {
                       <button
                         key={idx}
                         onClick={item.action}
-                        className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl hover:bg-white/[0.06] text-left text-xs transition-colors group"
+                        className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl hover:bg-fill-2 text-left text-xs transition-colors group"
                       >
                         <div className="flex items-center gap-3">
-                          <Icon className="w-4 h-4 text-zinc-400 group-hover:text-[#d4f932] transition-colors" />
-                          <span className="text-zinc-200 group-hover:text-white font-medium">
+                          <Icon className="w-4 h-4 text-subtle group-hover:text-accent-ink transition-colors" />
+                          <span className="text-foreground/90 group-hover:text-foreground font-medium">
                             {item.label}
                           </span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <span className="text-[10px] font-mono text-zinc-500 uppercase">
+                          <span className="text-[10px] font-mono text-faint uppercase">
                             {item.category}
                           </span>
-                          <ArrowRight className="w-3.5 h-3.5 text-zinc-600 group-hover:text-zinc-300 transition-colors" />
+                          <ArrowRight className="w-3.5 h-3.5 text-ghost group-hover:text-muted transition-colors" />
                         </div>
                       </button>
                     );
@@ -206,7 +206,7 @@ export function CommandPalette() {
               </div>
 
               {/* Palette Footer */}
-              <div className="px-4 py-2.5 border-t border-white/[0.06] bg-[#08090f] flex items-center justify-between text-[11px] font-mono text-zinc-500">
+              <div className="px-4 py-2.5 border-t border-border bg-card-3 flex items-center justify-between text-[11px] font-mono text-faint">
                 <span>Navigation & Shortcuts</span>
                 <span>ESC to close</span>
               </div>

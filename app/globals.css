@@ -1,25 +1,125 @@
 @import "tailwindcss";
 
+/* ---------------------------------------------------------------
+   Theme tokens — dark is the default, light is opt-in via
+   <html data-theme="light">. Components should only ever use the
+   semantic utilities below (bg-card, text-subtle, border-border…)
+   so both themes stay in sync.
+   --------------------------------------------------------------- */
 :root {
+  color-scheme: dark;
+
   --background: #070709;
   --foreground: #f4f4f5;
+  --muted: #d4d4d8;
+  --subtle: #a1a1aa;
+  --faint: #71717a;
+  --ghost: #52525b;
+
+  --card: #0d0e14;
+  --card-2: #13151f;
+  --card-3: #08090f;
+
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.18);
+
+  --fill-1: rgba(255, 255, 255, 0.03);
+  --fill-2: rgba(255, 255, 255, 0.05);
+  --fill-3: rgba(255, 255, 255, 0.09);
+  --fill-4: rgba(255, 255, 255, 0.14);
+
+  --well: rgba(0, 0, 0, 0.35);
+
   --accent: #d4f932;
-  --accent-glow: rgba(212, 249, 50, 0.15);
-  --border-subtle: rgba(255, 255, 255, 0.07);
-  --border-hover: rgba(255, 255, 255, 0.18);
-  --card-bg: #0d0e14;
-  --card-bg-elevated: #13151f;
+  --accent-hover: #e2ff4a;
+  --accent-ink: #d4f932;
+  --accent-fg: #0a0b0f;
+  --accent-soft: rgba(212, 249, 50, 0.1);
+
+  --success: #34d399;
+  --warning: #fcd34d;
+  --info: #38bdf8;
+
+  --grid-line: rgba(255, 255, 255, 0.035);
+  --dot-color: rgba(255, 255, 255, 0.1);
+  --scrollbar-thumb: #27272a;
+  --scrollbar-thumb-hover: #3f3f46;
+  --glow-from: rgba(255, 255, 255, 0.12);
+  --glow-to: rgba(212, 249, 50, 0.15);
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  --background: #f7f7f4;
+  --foreground: #17171b;
+  --muted: #3f3f46;
+  --subtle: #52525b;
+  --faint: #71717a;
+  --ghost: #a1a1aa;
+
+  --card: #ffffff;
+  --card-2: #fbfbf8;
+  --card-3: #f0f0ea;
+
+  --border: rgba(24, 24, 27, 0.1);
+  --border-strong: rgba(24, 24, 27, 0.22);
+
+  --fill-1: rgba(24, 24, 27, 0.035);
+  --fill-2: rgba(24, 24, 27, 0.055);
+  --fill-3: rgba(24, 24, 27, 0.09);
+  --fill-4: rgba(24, 24, 27, 0.14);
+
+  --well: rgba(24, 24, 27, 0.045);
+
+  --accent: #d4f932;
+  --accent-hover: #c6ea1e;
+  --accent-ink: #566f07;
+  --accent-fg: #14170a;
+  --accent-soft: rgba(212, 249, 50, 0.22);
+
+  --success: #047857;
+  --warning: #a16207;
+  --info: #0284c7;
+
+  --grid-line: rgba(24, 24, 27, 0.05);
+  --dot-color: rgba(24, 24, 27, 0.12);
+  --scrollbar-thumb: #c9c9c4;
+  --scrollbar-thumb-hover: #a8a8a2;
+  --glow-from: rgba(24, 24, 27, 0.08);
+  --glow-to: rgba(120, 150, 10, 0.16);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-faint: var(--faint);
+  --color-ghost: var(--ghost);
+  --color-card: var(--card);
+  --color-card-2: var(--card-2);
+  --color-card-3: var(--card-3);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-fill-1: var(--fill-1);
+  --color-fill-2: var(--fill-2);
+  --color-fill-3: var(--fill-3);
+  --color-fill-4: var(--fill-4);
+  --color-well: var(--well);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-fg: var(--accent-fg);
+  --color-accent-soft: var(--accent-soft);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-info: var(--info);
   --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
   --font-mono: var(--font-geist-mono), monospace;
 }
 
 html {
-  color-scheme: dark;
   scroll-behavior: smooth;
 }
 
@@ -39,31 +139,35 @@ body {
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #070709;
+  background: var(--background);
 }
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
+  background: var(--scrollbar-thumb);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3f3f46;
+  background: var(--scrollbar-thumb-hover);
 }
 
 /* Background Grids & Patterns */
 .bg-grid-pattern {
   background-size: 32px 32px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
 }
 
 .bg-dot-pattern {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
 .bg-radial-glow {
-  background: radial-gradient(circle at 50% 0%, rgba(212, 249, 50, 0.08) 0%, rgba(7, 7, 9, 0) 70%);
+  background: radial-gradient(
+    circle at 50% 0%,
+    var(--accent-soft) 0%,
+    transparent 70%
+  );
 }
 
 .glow-card {
@@ -79,9 +183,9 @@ body {
   padding: 1px;
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.12) 0%,
-    rgba(255, 255, 255, 0.02) 50%,
-    rgba(212, 249, 50, 0.15) 100%
+    var(--glow-from) 0%,
+    transparent 50%,
+    var(--glow-to) 100%
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
@@ -89,9 +193,47 @@ body {
   pointer-events: none;
 }
 
+/* Theme toggle icons swap on the document theme attribute, so the right icon
+   shows before hydration without a server/client mismatch. */
+.theme-icon-moon,
+.theme-icon-sun {
+  position: absolute;
+  height: 0.875rem;
+  width: 0.875rem;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.theme-icon-moon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.theme-icon-sun {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
+}
+
+[data-theme="light"] .theme-icon-moon {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.5);
+}
+
+[data-theme="light"] .theme-icon-sun {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
 @keyframes pulse-subtle {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(1.05); }
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
 }
 
 .animate-pulse-subtle {

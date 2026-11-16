@@ -49,19 +49,19 @@ export function AboutSection() {
     <section
       id="about"
       aria-label="About Me & Engineering Philosophy"
-      className="py-24 border-t border-white/[0.06] relative"
+      className="py-24 border-t border-border relative"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Column: Editorial Bio & Identity */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-mono text-[#d4f932]">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-fill-2 border border-border text-xs font-mono text-accent-ink">
               <Compass className="w-3.5 h-3.5" />
               <span>ABOUT & ENGINEERING PHILOSOPHY</span>
             </div>
 
             {/* Authentic Portrait Card */}
-            <div className="relative rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0c0e15] shadow-2xl group max-w-sm">
+            <div className="relative rounded-2xl overflow-hidden border border-border bg-card shadow-2xl group max-w-sm">
               <div className="relative h-64 sm:h-72 w-full overflow-hidden">
                 <Image
                   src="/efa.jpeg"
@@ -71,26 +71,26 @@ export function AboutSection() {
                   sizes="(max-width: 768px) 100vw, 400px"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0c0e15] via-transparent to-transparent opacity-90" />
+                <div className="absolute inset-0 bg-gradient-to-t from-card-2 via-transparent to-transparent opacity-90" />
               </div>
 
-              <div className="p-4 border-t border-white/[0.06] bg-[#090b10] flex items-center justify-between">
+              <div className="p-4 border-t border-border bg-card-3 flex items-center justify-between">
                 <div>
-                  <div className="text-xs font-semibold text-white">Efa Tariku</div>
-                  <div className="text-[11px] font-mono text-zinc-400">Full-Stack Developer @ INSA</div>
+                  <div className="text-xs font-semibold text-foreground">Efa Tariku</div>
+                  <div className="text-[11px] font-mono text-subtle">Full-Stack Developer @ INSA</div>
                 </div>
-                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[10px] font-mono text-emerald-400">
+                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[10px] font-mono text-success">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                   <span>Verified</span>
                 </div>
               </div>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground leading-tight">
               Software engineering focused on reliability, architecture, and purpose.
             </h2>
 
-            <div className="space-y-4 text-sm sm:text-base text-zinc-300 leading-relaxed font-normal">
+            <div className="space-y-4 text-sm sm:text-base text-muted leading-relaxed font-normal">
               <p>
                 I am a software engineer focused on designing and building scalable,
                 reliable, and user-centered software applications.
@@ -103,16 +103,16 @@ export function AboutSection() {
               <p>
                 My professional experience includes building large-scale enterprise
                 software and national platforms at the{" "}
-                <span className="text-white font-medium">
+                <span className="text-foreground font-medium">
                   Information Network Security Administration (INSA)
                 </span>
                 . I work with Java, Spring Boot, Next.js, React, PostgreSQL, and
                 distributed systems architectures.
               </p>
-              <p className="text-zinc-400">
+              <p className="text-subtle">
                 Grounded in the rigorous foundations of the{" "}
-                <span className="text-zinc-200">ALX Software Engineering Program</span> and
-                the <span className="text-zinc-200">INSA Cyber Talent Program</span>, my focus
+                <span className="text-foreground/90">ALX Software Engineering Program</span> and
+                the <span className="text-foreground/90">INSA Cyber Talent Program</span>, my focus
                 remains squarely on software engineering, backend systems, and
                 AI-powered practical applications.
               </p>
@@ -120,14 +120,14 @@ export function AboutSection() {
 
             {/* Core Focus Badges */}
             <div className="pt-2">
-              <div className="text-xs font-mono text-zinc-400 uppercase tracking-wider mb-3">
+              <div className="text-xs font-mono text-subtle uppercase tracking-wider mb-3">
                 Primary Engineering Domains
               </div>
               <div className="flex flex-wrap gap-2">
                 {PERSONAL_INFO.interests.map((interest) => (
                   <span
                     key={interest}
-                    className="px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/[0.07] text-xs font-mono text-zinc-300"
+                    className="px-3 py-1.5 rounded-lg bg-fill-1 border border-border text-xs font-mono text-muted"
                   >
                     {interest}
                   </span>
@@ -138,13 +138,13 @@ export function AboutSection() {
 
           {/* Right Column: Engineering Principles Cards */}
           <div className="lg:col-span-7 space-y-4">
-            <div className="p-1 rounded-2xl bg-gradient-to-b from-white/[0.08] to-transparent">
-              <div className="p-6 sm:p-8 rounded-2xl bg-[#0b0c13] border border-white/[0.06] space-y-6">
-                <div className="flex items-center justify-between border-b border-white/[0.06] pb-4">
-                  <span className="text-xs font-mono text-[#d4f932] tracking-wider uppercase">
+            <div className="p-1 rounded-2xl bg-gradient-to-b from-foreground/[0.08] to-transparent">
+              <div className="p-6 sm:p-8 rounded-2xl bg-card border border-border space-y-6">
+                <div className="flex items-center justify-between border-b border-border pb-4">
+                  <span className="text-xs font-mono text-accent-ink tracking-wider uppercase">
                     ARCHITECTURAL VALUES
                   </span>
-                  <span className="text-xs font-mono text-zinc-500">
+                  <span className="text-xs font-mono text-faint">
                     FOUR CORE TENETS
                   </span>
                 </div>
@@ -155,15 +155,15 @@ export function AboutSection() {
                     return (
                       <div
                         key={idx}
-                        className="p-4 rounded-xl border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] transition-colors"
+                        className="p-4 rounded-xl border border-border bg-fill-1 hover:bg-fill-2 transition-colors"
                       >
-                        <div className="w-8 h-8 rounded-lg bg-[#d4f932]/10 border border-[#d4f932]/20 flex items-center justify-center text-[#d4f932] mb-3">
+                        <div className="w-8 h-8 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center text-accent-ink mb-3">
                           <Icon className="w-4 h-4" />
                         </div>
-                        <h3 className="text-sm font-semibold text-white mb-1.5">
+                        <h3 className="text-sm font-semibold text-foreground mb-1.5">
                           {p.title}
                         </h3>
-                        <p className="text-xs text-zinc-400 leading-relaxed">
+                        <p className="text-xs text-subtle leading-relaxed">
                           {p.description}
                         </p>
                       </div>
@@ -172,32 +172,32 @@ export function AboutSection() {
                 </div>
 
                 {/* Milestone Counter Strip */}
-                <div className="pt-4 border-t border-white/[0.06] grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-                  <div className="p-3 rounded-lg bg-black/40">
-                    <div className="text-lg font-bold text-white font-mono">5th Place</div>
-                    <div className="text-[10px] text-zinc-500 font-mono">
+                <div className="pt-4 border-t border-border grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+                  <div className="p-3 rounded-lg bg-well">
+                    <div className="text-lg font-bold text-foreground font-mono">5th Place</div>
+                    <div className="text-[10px] text-faint font-mono">
                       Fayda Hackathon
                     </div>
                   </div>
-                  <div className="p-3 rounded-lg bg-black/40">
-                    <div className="text-lg font-bold text-[#d4f932] font-mono">
+                  <div className="p-3 rounded-lg bg-well">
+                    <div className="text-lg font-bold text-accent-ink font-mono">
                       National
                     </div>
-                    <div className="text-[10px] text-zinc-500 font-mono">
+                    <div className="text-[10px] text-faint font-mono">
                       Enterprise Scale @ INSA
                     </div>
                   </div>
-                  <div className="p-3 rounded-lg bg-black/40">
-                    <div className="text-lg font-bold text-white font-mono">ALX & INSA</div>
-                    <div className="text-[10px] text-zinc-500 font-mono">
+                  <div className="p-3 rounded-lg bg-well">
+                    <div className="text-lg font-bold text-foreground font-mono">ALX & INSA</div>
+                    <div className="text-[10px] text-faint font-mono">
                       Alumni & Graduate
                     </div>
                   </div>
-                  <div className="p-3 rounded-lg bg-black/40">
-                    <div className="text-lg font-bold text-[#d4f932] font-mono">
+                  <div className="p-3 rounded-lg bg-well">
+                    <div className="text-lg font-bold text-accent-ink font-mono">
                       Stanford
                     </div>
-                    <div className="text-[10px] text-zinc-500 font-mono">
+                    <div className="text-[10px] text-faint font-mono">
                       Data Science & Cloud
                     </div>
                   </div>
