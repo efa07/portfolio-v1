@@ -416,9 +416,7 @@ export function SystemInspector() {
                     <h4 className="text-sm font-semibold text-foreground">
                       OneCitizen — Fayda OIDC Authentication Flow
                     </h4>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-warning font-medium">
-                      5th Place Hackathon Finalist
-                    </span>
+                    
                   </div>
                   <p className="text-xs text-subtle">
                     National ID authentication with zero-knowledge consent verification

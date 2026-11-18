@@ -46,7 +46,6 @@ export function ContactSection() {
       className="py-24 border-t border-border relative overflow-hidden"
     >
       {/* Subtle ambient lighting */}
-      <div className="absolute bottom-0 right-1/4 w-[600px] h-[350px] bg-accent/[0.05] rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">

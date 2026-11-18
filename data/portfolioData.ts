@@ -50,7 +50,7 @@ export const PERSONAL_INFO = {
   availabilityDetails: "Full-time roles, high-impact backend & full-stack engineering",
   socials: {
     github: "https://github.com/efa07",
-    email: "efa.tariku.dev@gmail.com",
+    email: "efatariku07@gmail.com",
     linkedin: "https://www.linkedin.com/in/efa-tariku-7489bb3ab",
   },
   interests: [
