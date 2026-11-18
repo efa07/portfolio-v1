@@ -15,6 +15,7 @@ import {
   FileCode,
 } from "lucide-react";
 import { GithubIcon } from "@/components/Icons";
+import { LiquidGlassButton } from "@/components/LiquidGlass";
 
 interface ProjectCardProps {
   project: Project;
@@ -135,39 +136,45 @@ export function ProjectCard({ project, onOpenDetails, index }: ProjectCardProps)
 
         {/* Action Buttons */}
         <div className="pt-2 border-t border-border flex flex-wrap items-center justify-between gap-3">
-          <button
+          <LiquidGlassButton
+            variant="secondary"
+            size="sm"
             onClick={() => onOpenDetails(project)}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-fill-2 hover:bg-fill-3 text-xs font-medium text-foreground transition-colors"
+            className="rounded-xl"
           >
             <Layers className="w-3.5 h-3.5 text-accent-ink" />
             <span>Architecture Deep-Dive</span>
-          </button>
+          </LiquidGlassButton>
 
           <div className="flex items-center gap-2">
             {project.githubUrl && (
-              <a
+              <LiquidGlassButton
+                variant="secondary"
+                size="sm"
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-fill-1 hover:bg-fill-3 text-xs font-mono text-muted hover:text-foreground transition-colors border border-border"
+                className="font-mono text-xs rounded-xl"
               >
                 <GithubIcon className="w-3.5 h-3.5" />
                 <span>Source</span>
                 <ArrowUpRight className="w-3 h-3 text-faint" />
-              </a>
+              </LiquidGlassButton>
             )}
 
             {project.liveUrl && (
-              <a
+              <LiquidGlassButton
+                variant="primary"
+                size="sm"
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-accent hover:bg-accent-hover text-xs font-semibold text-accent-fg transition-all shadow-[0_0_12px_rgba(212,249,50,0.2)]"
+                className="rounded-xl shadow-[0_0_16px_rgba(242, 90, 34,0.25)]"
               >
                 <Globe className="w-3.5 h-3.5" />
                 <span>Live Site</span>
                 <ArrowUpRight className="w-3 h-3" />
-              </a>
+              </LiquidGlassButton>
             )}
           </div>
         </div>

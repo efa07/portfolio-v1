@@ -54,12 +54,13 @@ export function SkillsSection() {
               <button
                 key={cat.title}
                 onClick={() => setSelectedCategoryIndex(idx)}
-                className={`relative p-4 rounded-xl text-left border transition-all ${
+                className={`relative p-4 rounded-xl text-left border transition-all cursor-pointer overflow-hidden ${
                   isSelected
-                    ? "border-accent bg-accent/10 shadow-[0_0_20px_rgba(212,249,50,0.1)]"
-                    : "border-border bg-fill-1 hover:bg-fill-2 hover:border-border-strong"
+                    ? "border-accent/80 bg-accent/10 shadow-[0_0_24px_rgba(242, 90, 34,0.14),inset_0_1px_0_rgba(255,255,255,0.25)]"
+                    : "border-border/80 liquid-glass-pill hover:border-border-strong"
                 }`}
               >
+                <span className="liquid-glass-specular-edge" aria-hidden="true" />
                 <div className="flex items-center justify-between mb-2">
                   <Icon
                     className={`w-4 h-4 ${

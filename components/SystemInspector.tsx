@@ -16,6 +16,7 @@ import {
   Sliders,
   CheckCircle2,
 } from "lucide-react";
+import { LiquidGlassButton } from "@/components/LiquidGlass";
 
 type Mode = "pipeline" | "spring" | "fayda";
 
@@ -88,29 +89,15 @@ export function SystemInspector() {
 
   return (
     <div className="w-full rounded-2xl border border-border bg-card/90 backdrop-blur-xl overflow-hidden shadow-2xl">
-      {/* Top Bar with Tabs and Terminal Header */}
+      {/* Top Bar with Mode Switcher */}
       <div className="flex flex-wrap items-center justify-between border-b border-border px-4 py-3 bg-card-3">
-        <div className="flex items-center gap-2">
-          <div className="flex items-center gap-1.5 mr-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-red-500/30 border border-red-500/40 inline-block" />
-            <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/30 border border-yellow-500/40 inline-block" />
-            <span className="w-2.5 h-2.5 rounded-full bg-green-500/30 border border-green-500/40 inline-block" />
-          </div>
-          <span className="text-xs font-mono text-subtle font-medium">
-            system_inspector.sh
-          </span>
-          <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-fill-2 text-faint">
-            v2.6
-          </span>
-        </div>
-
         {/* Interactive Mode Switcher */}
-        <div className="flex items-center gap-1 bg-fill-2 p-1 rounded-xl border border-border overflow-x-auto max-w-full">
+        <div className="flex items-center gap-1.5 liquid-glass-pill p-1 rounded-xl border border-border/80 overflow-x-auto max-w-full relative">
           <button
             onClick={() => setActiveTab("pipeline")}
-            className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-lg text-xs font-medium whitespace-nowrap transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-all cursor-pointer ${
               activeTab === "pipeline"
-                ? "bg-accent text-accent-fg font-semibold shadow-sm"
+                ? "liquid-glass-pill-active font-semibold shadow-sm"
                 : "text-subtle hover:text-foreground"
             }`}
           >
@@ -119,9 +106,9 @@ export function SystemInspector() {
           </button>
           <button
             onClick={() => setActiveTab("spring")}
-            className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-lg text-xs font-medium whitespace-nowrap transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-all cursor-pointer ${
               activeTab === "spring"
-                ? "bg-accent text-accent-fg font-semibold shadow-sm"
+                ? "liquid-glass-pill-active font-semibold shadow-sm"
                 : "text-subtle hover:text-foreground"
             }`}
           >
@@ -130,9 +117,9 @@ export function SystemInspector() {
           </button>
           <button
             onClick={() => setActiveTab("fayda")}
-            className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-lg text-xs font-medium whitespace-nowrap transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-all cursor-pointer ${
               activeTab === "fayda"
-                ? "bg-accent text-accent-fg font-semibold shadow-sm"
+                ? "liquid-glass-pill-active font-semibold shadow-sm"
                 : "text-subtle hover:text-foreground"
             }`}
           >
@@ -164,17 +151,19 @@ export function SystemInspector() {
                   </p>
                 </div>
                 <div className="flex items-center gap-2">
-                  <button
+                  <LiquidGlassButton
+                    variant="primary"
+                    size="sm"
                     onClick={triggerPipeline}
                     disabled={isProcessing}
-                    className="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-accent hover:bg-accent-hover text-accent-fg text-xs font-semibold disabled:opacity-50 transition-all shadow-sm"
+                    className="rounded-lg shadow-[0_0_16px_rgba(242, 90, 34,0.25)]"
                   >
                     <Play className="w-3 h-3 fill-current" />
                     <span>{isProcessing ? "Processing..." : "Dispatch Request"}</span>
-                  </button>
+                  </LiquidGlassButton>
                   <button
                     onClick={resetPipeline}
-                    className="p-1.5 rounded-lg border border-border hover:bg-fill-2 text-subtle hover:text-foreground text-xs transition-colors"
+                    className="p-2 rounded-lg liquid-glass-pill text-subtle hover:text-foreground text-xs transition-colors cursor-pointer"
                     title="Reset"
                   >
                     <RotateCcw className="w-3.5 h-3.5" />
@@ -230,7 +219,7 @@ export function SystemInspector() {
                       key={node.step}
                       className={`relative p-3 rounded-xl border transition-all duration-300 ${
                         isActive
-                          ? "border-accent bg-accent/10 shadow-[0_0_20px_rgba(212,249,50,0.15)]"
+                          ? "border-accent bg-accent/10 shadow-[0_0_20px_rgba(242, 90, 34,0.15)]"
                           : isPassed
                           ? "border-emerald-500/40 bg-emerald-500/5 text-success"
                           : "border-border bg-fill-1 text-subtle"
@@ -307,12 +296,14 @@ export function SystemInspector() {
                     Fine-tune physics parameters used across UI micro-interactions
                   </p>
                 </div>
-                <button
+                <LiquidGlassButton
+                  variant="primary"
+                  size="sm"
                   onClick={() => setIsMoved(!isMoved)}
-                  className="px-3.5 py-1.5 rounded-lg bg-accent hover:bg-accent-hover text-accent-fg text-xs font-semibold transition-all shadow-sm"
+                  className="rounded-lg shadow-[0_0_16px_rgba(242, 90, 34,0.25)]"
                 >
-                  Trigger Spring Bounce
-                </button>
+                  <span>Trigger Spring Bounce</span>
+                </LiquidGlassButton>
               </div>
 
               {/* Interactive Canvas */}
@@ -433,15 +424,17 @@ export function SystemInspector() {
                     National ID authentication with zero-knowledge consent verification
                   </p>
                 </div>
-                <button
+                <LiquidGlassButton
+                  variant="primary"
+                  size="sm"
                   onClick={() => {
                     setOidcStep((prev) => (prev % 3) + 1);
                     if (oidcStep === 2) setVerifiedToken(true);
                   }}
-                  className="px-3.5 py-1.5 rounded-lg bg-accent hover:bg-accent-hover text-accent-fg text-xs font-semibold transition-all shadow-sm"
+                  className="rounded-lg shadow-[0_0_16px_rgba(242, 90, 34,0.25)]"
                 >
-                  Advance Auth Phase ({oidcStep}/3)
-                </button>
+                  <span>Advance Auth Phase ({oidcStep}/3)</span>
+                </LiquidGlassButton>
               </div>
 
               {/* 3 Step Protocol Cards */}

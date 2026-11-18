@@ -71,11 +71,12 @@ export function Footer() {
             </a>
             <button
               onClick={scrollToTop}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border hover:border-border-strong hover:text-foreground transition-colors"
+              className="relative flex items-center gap-1.5 px-3.5 py-1.5 rounded-full liquid-glass-pill hover:text-foreground transition-all cursor-pointer overflow-hidden"
               aria-label="Back to top"
             >
-              <span>Back to top</span>
-              <ArrowUp className="w-3.5 h-3.5 text-accent-ink" />
+              <span className="liquid-glass-specular-edge" aria-hidden="true" />
+              <span className="relative z-10">Back to top</span>
+              <ArrowUp className="w-3.5 h-3.5 text-accent-ink relative z-10" />
             </button>
           </div>
         </div>

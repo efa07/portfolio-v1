@@ -15,6 +15,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/Icons";
+import { LiquidGlassButton, LiquidGlassPill } from "@/components/LiquidGlass";
 
 export function ContactSection() {
   const [copied, setCopied] = useState<boolean>(false);
@@ -66,26 +67,30 @@ export function ContactSection() {
             </p>
 
             {/* Quick Copy Email Card */}
-            <div className="p-4 rounded-xl border border-border bg-card space-y-3">
-              <div className="text-xs font-mono text-faint uppercase tracking-wider">
+            <div className="p-4 rounded-2xl liquid-glass-pill border border-border/80 space-y-3 relative overflow-hidden block">
+              <span className="liquid-glass-specular-edge" aria-hidden="true" />
+              <div className="text-xs font-mono text-faint uppercase tracking-wider relative z-10">
                 Direct Communication
               </div>
-              <div className="flex items-center justify-between gap-2 p-2.5 rounded-lg bg-well border border-border">
+              <div className="flex items-center justify-between gap-2 p-2.5 rounded-xl bg-well/60 border border-border relative z-10">
                 <div className="flex items-center gap-2 overflow-hidden">
                   <Mail className="w-4 h-4 text-accent-ink shrink-0" />
                   <span className="text-xs sm:text-sm font-mono text-foreground/90 truncate">
                     {PERSONAL_INFO.socials.email}
                   </span>
                 </div>
-                <button
+                <LiquidGlassButton
+                  type="button"
+                  variant="secondary"
+                  size="sm"
                   onClick={handleCopyEmail}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-fill-3 hover:bg-fill-4 text-xs font-medium text-foreground transition-colors shrink-0"
+                  className="rounded-lg shrink-0"
                   aria-label="Copy email address"
                 >
                   {copied ? (
                     <>
                       <Check className="w-3.5 h-3.5 text-accent-ink" />
-                      <span className="text-accent-ink">Copied!</span>
+                      <span className="text-accent-ink font-semibold">Copied!</span>
                     </>
                   ) : (
                     <>
@@ -93,7 +98,7 @@ export function ContactSection() {
                       <span>Copy</span>
                     </>
                   )}
-                </button>
+                </LiquidGlassButton>
               </div>
             </div>
 
@@ -103,27 +108,31 @@ export function ContactSection() {
                 Profiles & Repositories
               </div>
               <div className="flex flex-wrap gap-3">
-                <a
+                <LiquidGlassButton
+                  variant="secondary"
+                  size="md"
                   href={PERSONAL_INFO.socials.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-border bg-fill-1 hover:bg-fill-2 text-xs font-medium text-muted hover:text-foreground transition-colors"
+                  className="rounded-xl font-mono text-xs"
                 >
                   <GithubIcon className="w-4 h-4" />
                   <span>GitHub (@efa07)</span>
                   <ArrowUpRight className="w-3.5 h-3.5 text-faint" />
-                </a>
+                </LiquidGlassButton>
 
-                <a
+                <LiquidGlassButton
+                  variant="secondary"
+                  size="md"
                   href={PERSONAL_INFO.socials.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-border bg-fill-1 hover:bg-fill-2 text-xs font-medium text-muted hover:text-foreground transition-colors"
+                  className="rounded-xl font-mono text-xs"
                 >
                   <LinkedinIcon className="w-4 h-4 text-info" />
                   <span>LinkedIn Profile</span>
                   <ArrowUpRight className="w-3.5 h-3.5 text-faint" />
-                </a>
+                </LiquidGlassButton>
               </div>
             </div>
 
@@ -245,13 +254,15 @@ export function ContactSection() {
                     />
                   </div>
 
-                  <button
+                  <LiquidGlassButton
                     type="submit"
-                    className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-accent hover:bg-accent-hover text-accent-fg font-semibold text-xs sm:text-sm transition-all shadow-[0_0_20px_rgba(212,249,50,0.2)] hover:shadow-[0_0_28px_rgba(212,249,50,0.35)] active:scale-[0.99]"
+                    variant="primary"
+                    size="lg"
+                    className="w-full justify-center shadow-[0_0_24px_rgba(242, 90, 34,0.3)] hover:shadow-[0_0_36px_rgba(242, 90, 34,0.45)]"
                   >
                     <Send className="w-4 h-4" />
                     <span>Send Message to Efa</span>
-                  </button>
+                  </LiquidGlassButton>
                 </form>
               )}
             </div>

@@ -48,21 +48,22 @@ export function ExperienceSection() {
           </div>
 
           {/* Filter Pills */}
-          <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-fill-1 border border-border">
+          <div className="flex flex-wrap items-center gap-1.5 p-1.5 rounded-2xl liquid-glass-pill border border-border/80 relative overflow-hidden">
+            <span className="liquid-glass-specular-edge" aria-hidden="true" />
             {(["All", "Work", "Education", "Certification"] as const).map((tab) => {
               const isActive = activeTab === tab;
               return (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
-                  className={`relative px-3.5 py-1.5 rounded-lg text-xs font-mono transition-colors ${
+                  className={`relative px-4 py-2 rounded-xl text-xs font-mono transition-colors cursor-pointer ${
                     isActive ? "text-accent-fg font-semibold" : "text-subtle hover:text-foreground"
                   }`}
                 >
                   {isActive && (
                     <motion.div
                       layoutId="expPill"
-                      className="absolute inset-0 bg-accent rounded-lg shadow-sm"
+                      className="absolute inset-0 bg-accent rounded-xl shadow-[0_0_16px_rgba(242, 90, 34,0.25)] border border-white/40"
                       transition={{ type: "spring", stiffness: 400, damping: 30 }}
                     />
                   )}

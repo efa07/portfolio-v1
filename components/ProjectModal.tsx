@@ -14,6 +14,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { GithubIcon } from "@/components/Icons";
+import { LiquidGlassButton } from "@/components/LiquidGlass";
 
 interface ProjectModalProps {
   project: Project | null;
@@ -54,10 +55,11 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: "spring", stiffness: 350, damping: 28 }}
-            className="relative w-full max-w-3xl rounded-2xl border border-border bg-card text-foreground shadow-2xl overflow-hidden z-10 max-h-[90vh] flex flex-col"
+            className="relative w-full max-w-3xl rounded-2xl border border-border/80 liquid-glass-drawer text-foreground shadow-2xl overflow-hidden z-10 max-h-[90vh] flex flex-col"
           >
+            <span className="liquid-glass-specular-edge" aria-hidden="true" />
             {/* Modal Header */}
-            <div className="flex items-center justify-between border-b border-border px-6 py-4 bg-card-3">
+            <div className="flex items-center justify-between border-b border-border/80 px-6 py-4 bg-card-3/80">
               <div className="flex items-center gap-3">
                 <span className="text-xs font-mono font-bold text-accent-ink px-2 py-0.5 rounded bg-accent/10 border border-accent/20">
                   PROJECT {project.number}
@@ -169,28 +171,32 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
               <div className="flex items-center gap-3">
                 {project.githubUrl && (
-                  <a
+                  <LiquidGlassButton
+                    variant="secondary"
+                    size="sm"
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 rounded-xl bg-fill-3 hover:bg-fill-4 text-xs font-medium text-foreground transition-colors"
+                    className="rounded-xl"
                   >
                     <GithubIcon className="w-4 h-4" />
                     <span>View GitHub</span>
                     <ArrowUpRight className="w-3.5 h-3.5 text-subtle" />
-                  </a>
+                  </LiquidGlassButton>
                 )}
                 {project.liveUrl && (
-                  <a
+                  <LiquidGlassButton
+                    variant="primary"
+                    size="sm"
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 rounded-xl bg-accent hover:bg-accent-hover text-xs font-semibold text-accent-fg transition-colors"
+                    className="rounded-xl shadow-[0_0_16px_rgba(242, 90, 34,0.25)]"
                   >
                     <Globe className="w-4 h-4" />
                     <span>Live Website</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
-                  </a>
+                  </LiquidGlassButton>
                 )}
               </div>
             </div>

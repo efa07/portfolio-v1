@@ -122,17 +122,21 @@ export function CommandPalette() {
     <>
       {/* Floating Keyboard Shortcut Trigger */}
       <div className="fixed bottom-6 right-6 z-40 hidden md:block">
-        <button
+        <motion.button
           onClick={() => setIsOpen(true)}
-          className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-fill-2/90 hover:bg-fill-3 border border-border text-xs font-mono text-subtle hover:text-foreground transition-all shadow-xl backdrop-blur-md"
+          whileHover={{ scale: 1.04, y: -1 }}
+          whileTap={{ scale: 0.97 }}
+          transition={{ type: "spring", stiffness: 450, damping: 25 }}
+          className="relative flex items-center gap-2.5 px-3.5 py-2 rounded-full liquid-glass-pill text-xs font-mono text-subtle hover:text-foreground transition-all shadow-2xl overflow-hidden cursor-pointer"
           title="Command Palette (Cmd+K)"
         >
-          <Command className="w-3.5 h-3.5 text-accent-ink" />
-          <span>Quick actions</span>
-          <kbd className="px-1.5 py-0.5 rounded bg-fill-3 text-[10px] text-muted">
+          <span className="liquid-glass-specular-edge" aria-hidden="true" />
+          <Command className="w-3.5 h-3.5 text-accent-ink relative z-10" />
+          <span className="relative z-10 font-medium">Quick actions</span>
+          <kbd className="relative z-10 px-1.5 py-0.5 rounded bg-fill-3 border border-border-strong text-[10px] text-muted font-semibold">
             ⌘K
           </kbd>
-        </button>
+        </motion.button>
       </div>
 
       <AnimatePresence>
@@ -143,7 +147,7 @@ export function CommandPalette() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-black/80 backdrop-blur-sm"
+              className="fixed inset-0 bg-black/80 backdrop-blur-md"
             />
 
             <motion.div
@@ -151,8 +155,9 @@ export function CommandPalette() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.96, y: -10 }}
               transition={{ type: "spring", stiffness: 400, damping: 30 }}
-              className="relative w-full max-w-xl rounded-2xl border border-border bg-card shadow-2xl overflow-hidden z-10"
+              className="relative w-full max-w-xl rounded-2xl border border-border/80 liquid-glass-drawer shadow-2xl overflow-hidden z-10"
             >
+              <span className="liquid-glass-specular-edge" aria-hidden="true" />
               {/* Search Bar Input */}
               <div className="flex items-center px-4 py-3.5 border-b border-border gap-3">
                 <Search className="w-4 h-4 text-subtle shrink-0" />
