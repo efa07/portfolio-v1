@@ -143,18 +143,18 @@ export function Hero() {
 
         <motion.div
           initial={reduceMotion ? false : { opacity: 0, scale: 0.94 }}
-          animate={{ opacity: 1, scale: 1 }}
+          animate={{ opacity: 2, scale: 1 }}
           transition={{ duration: 1.4, delay: 0.25, ease: EASE }}
           className={`relative order-first mx-auto aspect-square w-full max-w-[300px] overflow-hidden rounded-[2rem] sm:max-w-[420px] lg:order-none lg:col-span-6 lg:mx-0 lg:max-w-[600px] lg:justify-self-end ${theme === "light" ? "bg-[#080808]" : ""}`}
         >
-          <motion.div style={{ y: orbY }} className="absolute inset-0">
+          <motion.div style={{ y: orbY }} className="absolute inset-0 ">
             <DitheringShader
               shape="sphere"
               type="random"
-              colorBack="rgba(0,0,0,0)"
+              colorBack="rgba(247, 245, 245, 0)"
               colorFront="#F25A22"
-              size={2}
-              speed={reduceMotionFlag ? 0 : 1}
+              size={1}
+              speed={reduceMotionFlag ? 0 : 2}
             />
           </motion.div>
         </motion.div>
