@@ -59,7 +59,7 @@ export function Hero() {
       ref={sectionRef}
       id="hero"
       aria-label="Hero Introduction"
-      className="relative isolate flex min-h-[100svh] items-center overflow-hidden pt-24 pb-16 sm:pt-32 lg:pb-24"
+      className="bg-dot-pattern relative isolate flex min-h-[100svh] items-center overflow-hidden pt-24 pb-16 sm:pt-32 lg:pb-24"
     >
       {showShader && (
         <>
@@ -95,7 +95,7 @@ export function Hero() {
               <React.Fragment key={`${text}-${index}`}>
                 <motion.span
                   variants={word}
-                  className={`inline-block ${index >= HIGHLIGHT_FROM ? "text-accent" : ""}`}
+                  className={`inline-block ${index >= HIGHLIGHT_FROM ? "text-accent-ink" : ""}`}
                 >
                   {text}
                 </motion.span>
@@ -131,7 +131,7 @@ export function Hero() {
                   aria-label={label}
                   target={external ? "_blank" : undefined}
                   rel={external ? "noopener noreferrer" : undefined}
-                  className="inline-flex text-subtle transition-colors hover:text-accent focus:outline-none focus-visible:text-accent"
+                  className="inline-flex text-subtle transition-colors hover:text-accent-ink focus:outline-none focus-visible:text-accent-ink"
                 >
                   <Icon className="h-5 w-5" aria-hidden="true" />
                   <span className="sr-only">{label}</span>
@@ -145,14 +145,14 @@ export function Hero() {
           initial={reduceMotion ? false : { opacity: 0, scale: 0.94 }}
           animate={{ opacity: 2, scale: 1 }}
           transition={{ duration: 1.4, delay: 0.25, ease: EASE }}
-          className={`relative order-first mx-auto aspect-square w-full max-w-[300px] overflow-hidden rounded-[2rem] sm:max-w-[420px] lg:order-none lg:col-span-6 lg:mx-0 lg:max-w-[600px] lg:justify-self-end ${theme === "light" ? "bg-[#080808]" : ""}`}
+          className={`relative order-first mx-auto aspect-square w-full max-w-[300px] overflow-hidden sm:max-w-[420px] lg:order-none lg:col-span-6 lg:mx-0 lg:max-w-[600px] lg:justify-self-end ${theme === "light" ? "bg-[#111111]" : ""}`}
         >
           <motion.div style={{ y: orbY }} className="absolute inset-0 ">
             <DitheringShader
               shape="sphere"
               type="random"
               colorBack="rgba(247, 245, 245, 0)"
-              colorFront="#F25A22"
+              colorFront="#ff5f00"
               size={1}
               speed={reduceMotionFlag ? 0 : 2}
             />

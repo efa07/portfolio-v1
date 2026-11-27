@@ -257,7 +257,7 @@ export function ContactSection() {
                     type="submit"
                     variant="primary"
                     size="lg"
-                    className="w-full justify-center shadow-[0_0_24px_rgba(242, 90, 34,0.3)] hover:shadow-[0_0_36px_rgba(242, 90, 34,0.45)]"
+                    className="w-full justify-center"
                   >
                     <Send className="w-4 h-4" />
                     <span>Send Message to Efa</span>

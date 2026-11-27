@@ -156,7 +156,6 @@ export function SystemInspector() {
                     size="sm"
                     onClick={triggerPipeline}
                     disabled={isProcessing}
-                    className="rounded-lg shadow-[0_0_16px_rgba(242, 90, 34,0.25)]"
                   >
                     <Play className="w-3 h-3 fill-current" />
                     <span>{isProcessing ? "Processing..." : "Dispatch Request"}</span>
@@ -219,7 +218,7 @@ export function SystemInspector() {
                       key={node.step}
                       className={`relative p-3 rounded-xl border transition-all duration-300 ${
                         isActive
-                          ? "border-accent bg-accent/10 shadow-[0_0_20px_rgba(242, 90, 34,0.15)]"
+                          ? "border-accent bg-accent/10"
                           : isPassed
                           ? "border-emerald-500/40 bg-emerald-500/5 text-success"
                           : "border-border bg-fill-1 text-subtle"
@@ -300,7 +299,6 @@ export function SystemInspector() {
                   variant="primary"
                   size="sm"
                   onClick={() => setIsMoved(!isMoved)}
-                  className="rounded-lg shadow-[0_0_16px_rgba(242, 90, 34,0.25)]"
                 >
                   <span>Trigger Spring Bounce</span>
                 </LiquidGlassButton>
@@ -429,7 +427,6 @@ export function SystemInspector() {
                     setOidcStep((prev) => (prev % 3) + 1);
                     if (oidcStep === 2) setVerifiedToken(true);
                   }}
-                  className="rounded-lg shadow-[0_0_16px_rgba(242, 90, 34,0.25)]"
                 >
                   <span>Advance Auth Phase ({oidcStep}/3)</span>
                 </LiquidGlassButton>

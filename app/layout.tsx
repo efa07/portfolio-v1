@@ -3,15 +3,19 @@ import localFont from "next/font/local";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "../node_modules/geist/dist/fonts/geist-sans/Geist-Variable.woff2",
-  variable: "--font-geist-sans",
+const portfolioSans = localFont({
+  src: [
+    { path: "./fonts/font3.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/font1.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/font2.woff2", weight: "600", style: "normal" },
+  ],
+  variable: "--font-portfolio-sans",
   display: "swap",
 });
 
-const geistMono = localFont({
-  src: "../node_modules/geist/dist/fonts/geist-mono/GeistMono-Variable.woff2",
-  variable: "--font-geist-mono",
+const portfolioMono = localFont({
+  src: [{ path: "./fonts/font4.woff2", weight: "400", style: "normal" }],
+  variable: "--font-portfolio-mono",
   display: "swap",
 });
 
@@ -74,7 +78,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased selection:bg-accent selection:text-accent-fg`}
+      className={`${portfolioSans.variable} ${portfolioMono.variable} h-full antialiased selection:bg-accent selection:text-accent-fg`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground font-sans antialiased">
         {/* Applies the stored theme before first paint so there is no flash. */}

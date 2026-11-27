@@ -61,7 +61,7 @@ export function Navigation() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <nav
             aria-label="Main Navigation"
-            className="liquid-glass-nav relative flex items-center justify-between gap-4 rounded-2xl px-3 py-2 sm:px-4 transition-all duration-500 overflow-hidden"
+            className="liquid-glass-nav relative flex items-center justify-between gap-4 px-3 py-2 sm:px-4 transition-all duration-500 overflow-hidden"
           >
             <span className="liquid-glass-specular-edge" aria-hidden="true" />
 
@@ -94,7 +94,7 @@ export function Navigation() {
                     href={item.href}
                     aria-current={isActive ? "location" : undefined}
                     className={`relative px-3.5 py-1.5 text-sm transition-colors duration-200 ${
-                      isActive ? "text-accent" : "text-subtle hover:text-foreground"
+                      isActive ? "text-accent-ink" : "text-subtle hover:text-foreground"
                     }`}
                   >
                     {item.label}
@@ -119,6 +119,7 @@ export function Navigation() {
                 href="#contact"
                 className="hidden rounded-lg md:inline-flex"
               >
+                <span aria-hidden="true" className="h-1.5 w-1.5 bg-current" />
                 <span>Get in touch</span>
                 <ArrowUpRight className="h-3.5 w-3.5" />
               </LiquidGlassButton>
@@ -154,7 +155,7 @@ export function Navigation() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -12, scale: 0.98 }}
               transition={{ type: "spring", stiffness: 400, damping: 30 }}
-              className="liquid-glass-drawer fixed inset-x-4 top-20 z-[60] overflow-hidden rounded-2xl p-3 shadow-2xl md:hidden"
+              className="liquid-glass-drawer fixed inset-x-4 top-20 z-[60] overflow-hidden p-3 shadow-2xl md:hidden"
             >
               <span className="liquid-glass-specular-edge" aria-hidden="true" />
               <nav aria-label="Mobile Navigation" className="relative z-10 flex flex-col">
@@ -163,7 +164,7 @@ export function Navigation() {
                     key={item.label}
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="rounded-xl px-3 py-3 text-base font-medium text-muted transition-colors hover:bg-fill-2 hover:text-accent"
+                    className="rounded-xl px-3 py-3 text-base font-medium text-muted transition-colors hover:bg-fill-2 hover:text-accent-ink"
                   >
                     {item.label}
                   </a>

@@ -56,7 +56,7 @@ export function SkillsSection() {
                 onClick={() => setSelectedCategoryIndex(idx)}
                 className={`relative p-4 rounded-xl text-left border transition-all cursor-pointer overflow-hidden ${
                   isSelected
-                    ? "border-accent/80 bg-accent/10 shadow-[0_0_24px_rgba(242, 90, 34,0.14),inset_0_1px_0_rgba(255,255,255,0.25)]"
+                    ? "border-accent/80 bg-accent/10"
                     : "border-border/80 liquid-glass-pill hover:border-border-strong"
                 }`}
               >

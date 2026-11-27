@@ -94,14 +94,13 @@ export function LiquidGlassButton({
   ...props
 }: LiquidGlassButtonProps) {
   const sizeClasses = {
-    sm: "px-3 py-1.5 text-xs rounded-full gap-1.5",
-    md: "px-4 py-2.5 text-xs sm:text-sm rounded-xl gap-2",
-    lg: "px-6 py-3.5 text-sm sm:text-base rounded-xl gap-2.5",
+    sm: "px-3 py-1.5 text-xs gap-1.5",
+    md: "px-4 py-2.5 text-xs sm:text-sm gap-2",
+    lg: "px-6 py-3.5 text-sm sm:text-base gap-2.5",
   }[size];
 
   const variantClasses = {
-    primary:
-      "liquid-glass-btn-primary text-accent-fg font-semibold shadow-[0_0_24px_rgba(242, 90, 34,0.28)] hover:shadow-[0_0_36px_rgba(242, 90, 34,0.45)]",
+    primary: "liquid-glass-btn-primary text-accent-fg font-medium",
     secondary:
       "liquid-glass-btn-secondary text-foreground hover:text-foreground font-medium",
     subtle:
@@ -109,16 +108,16 @@ export function LiquidGlassButton({
   }[variant];
 
   const baseClasses = cn(
-    "relative inline-flex items-center justify-center select-none overflow-hidden transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent",
+    "relative inline-flex items-center justify-center select-none overflow-hidden transition-colors duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent",
     sizeClasses,
     variantClasses,
     className
   );
 
   const motionProps = {
-    whileHover: { scale: 1.025, y: -1 },
-    whileTap: { scale: 0.97, y: 1 },
-    transition: { type: "spring" as const, stiffness: 450, damping: 25 },
+    whileHover: { y: -1 },
+    whileTap: { y: 0 },
+    transition: { duration: 0.15, ease: "easeOut" as const },
   };
 
   if (href) {
@@ -160,7 +159,7 @@ export function LiquidGlassPill({
   return (
     <div
       className={cn(
-        "relative inline-flex items-center rounded-full transition-all duration-200",
+        "relative inline-flex items-center transition-colors duration-200",
         active ? "liquid-glass-pill-active" : "liquid-glass-pill",
         className
       )}

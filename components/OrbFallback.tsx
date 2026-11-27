@@ -61,9 +61,9 @@ export function OrbFallback({ className = "" }: { className?: string }) {
     >
       <defs>
         <radialGradient id="orb-fallback-glow">
-          <stop offset="0" stopColor="#F25A22" stopOpacity="0.16" />
-          <stop offset="0.6" stopColor="#F25A22" stopOpacity="0.04" />
-          <stop offset="1" stopColor="#F25A22" stopOpacity="0" />
+          <stop offset="0" stopColor="#ff5f00" stopOpacity="0.16" />
+          <stop offset="0.6" stopColor="#ff5f00" stopOpacity="0.04" />
+          <stop offset="1" stopColor="#ff5f00" stopOpacity="0" />
         </radialGradient>
       </defs>
       <circle cx="0" cy="0" r="1.35" fill="url(#orb-fallback-glow)" />
@@ -73,7 +73,7 @@ export function OrbFallback({ className = "" }: { className?: string }) {
           cx={point.x}
           cy={point.y}
           r={point.r}
-          fill={point.ember ? "#F25A22" : "#F5F5F5"}
+          fill={point.ember ? "#ff5f00" : "#ffffff"}
           fillOpacity={point.opacity}
         />
       ))}

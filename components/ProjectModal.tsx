@@ -191,7 +191,6 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-xl shadow-[0_0_16px_rgba(242, 90, 34,0.25)]"
                   >
                     <Globe className="w-4 h-4" />
                     <span>Live Website</span>

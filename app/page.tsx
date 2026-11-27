@@ -12,7 +12,7 @@ import { LiquidGlassFilter } from "@/components/LiquidGlass";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-background text-foreground flex flex-col selection:bg-accent selection:text-accent-fg">
+    <main className="portfolio-flat relative min-h-screen bg-background text-foreground flex flex-col selection:bg-accent selection:text-accent-fg">
       <LiquidGlassFilter />
       <Navigation />
       <Hero />

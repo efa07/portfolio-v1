@@ -64,7 +64,7 @@ export function ProjectsSection() {
                   {isActive && (
                     <motion.div
                       layoutId="categoryPill"
-                      className="absolute inset-0 bg-accent rounded-xl shadow-[0_0_16px_rgba(242, 90, 34,0.25)] border border-white/40"
+                      className="absolute inset-0 bg-accent border border-white/40"
                       transition={{ type: "spring", stiffness: 400, damping: 30 }}
                     />
                   )}

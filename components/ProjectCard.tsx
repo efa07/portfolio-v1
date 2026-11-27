@@ -169,7 +169,6 @@ export function ProjectCard({ project, onOpenDetails, index }: ProjectCardProps)
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-xl shadow-[0_0_16px_rgba(242, 90, 34,0.25)]"
               >
                 <Globe className="w-3.5 h-3.5" />
                 <span>Live Site</span>
